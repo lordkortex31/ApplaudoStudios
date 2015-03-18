@@ -88,7 +88,7 @@ public class FragmentParent extends Fragment implements AdapterView.OnItemClickL
                             mlsvAmazonList.setAdapter(mAdaptador);
                             mAmazonProgressdialog.hide();
                         } catch (Exception ex) {
-                            Log.e("Error Loading Data", "Error Loading Data", ex);
+                            Log.e("Error Loading Fragment", "Error Loading Data", ex);
                             mAmazonProgressdialog.hide();
                         }
                     }
