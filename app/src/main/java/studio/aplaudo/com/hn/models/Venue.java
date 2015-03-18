@@ -1,4 +1,4 @@
-package studio.aplaudo.com.hn.model;
+package studio.aplaudo.com.hn.models;
 
 import com.google.gson.annotations.SerializedName;
 

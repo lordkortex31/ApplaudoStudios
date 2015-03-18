@@ -1,4 +1,4 @@
-package studio.aplaudo.com.hn.api;
+package studio.aplaudo.com.hn.apis;
 
 import android.app.Application;
 import android.text.TextUtils;

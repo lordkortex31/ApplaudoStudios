@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import studio.aplaudo.com.hn.applaudostudios.R;
-import studio.aplaudo.com.hn.model.Venue;
+import studio.aplaudo.com.hn.models.Venue;
 
 /**
  * Created by CortesMoncada on 17/03/2015.

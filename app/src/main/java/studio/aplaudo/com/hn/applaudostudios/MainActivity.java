@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import studio.aplaudo.com.hn.interfaces.Communicator;
-import studio.aplaudo.com.hn.model.Venue;
+import studio.aplaudo.com.hn.models.Venue;
 
 /**
  * Created by CortesMoncada on 17/03/2015.

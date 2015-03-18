@@ -4,7 +4,7 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
-import studio.aplaudo.com.hn.model.Venue;
+import studio.aplaudo.com.hn.models.Venue;
 
 /**
  * Created by CortesMoncada on 17/03/2015.

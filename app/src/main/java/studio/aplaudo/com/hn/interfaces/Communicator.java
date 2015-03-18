@@ -1,6 +1,6 @@
 package studio.aplaudo.com.hn.interfaces;
 
-import studio.aplaudo.com.hn.model.Venue;
+import studio.aplaudo.com.hn.models.Venue;
 
 /**
  * Created by CortesMoncada on 17/03/2015.

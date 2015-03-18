@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import studio.aplaudo.com.hn.model.ScheduleItem;
-import studio.aplaudo.com.hn.model.Venue;
+import studio.aplaudo.com.hn.models.ScheduleItem;
+import studio.aplaudo.com.hn.models.Venue;
 
 /**
  * Created by CortesMoncada on 17/03/2015.
@@ -52,7 +52,7 @@ public class FragmentDetail extends Fragment {
             String mUrlImage = mVenue.getImageUrl();
 
             if (!mUrlImage.equals("")) {
-                Picasso.with(getActivity()).load(mUrlImage).error(R.mipmap.noimage).into(mImgAmazonList);
+                Picasso.with(getActivity()).load(mUrlImage).placeholder(R.mipmap.loadingimage).error(R.mipmap.noimage).into(mImgAmazonList);
             } else {
                 Resources res = getActivity().getResources();
                 Drawable drawable = res.getDrawable(R.mipmap.noimage);
