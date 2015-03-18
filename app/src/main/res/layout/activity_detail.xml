@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:name="studio.aplaudo.com.hn.applaudostudios.FragmentDetail"
+        android:id="@+id/fragmentDetailNfl"
+        android:layout_below="@+id/fragmentParentNfl"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="73dp" />
+
+</LinearLayout>
