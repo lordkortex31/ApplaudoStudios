@@ -1,4 +1,4 @@
-package studio.aplaudo.com.hn.applaudostudios;
+package studio.aplaudo.com.hn.fragments;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
@@ -22,9 +22,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import studio.aplaudo.com.hn.adapters.Adapter_amazon_list;
-import studio.aplaudo.com.hn.apis.AppController;
+import studio.aplaudo.com.hn.apis.AplaudoApp;
+import studio.aplaudo.com.hn.applaudostudios.R;
 import studio.aplaudo.com.hn.constants.Const;
-import studio.aplaudo.com.hn.interfaces.Communicator;
+import studio.aplaudo.com.hn.interfaces.VenueListener;
 import studio.aplaudo.com.hn.models.Venue;
 import studio.aplaudo.com.hn.models.VenueList;
 
@@ -38,7 +39,7 @@ public class FragmentParent extends Fragment   {
     private String mJsonRespuesta = "";
     private ListView mlsvAmazonList;
     private ProgressDialog mAmazonProgressdialog;
-    private Communicator communicator;
+    private VenueListener communicator;
 
 
     @Override
@@ -50,7 +51,7 @@ public class FragmentParent extends Fragment   {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        communicator = (Communicator) getActivity();
+        communicator = (VenueListener) getActivity();
         mlsvAmazonList = (ListView) getActivity().findViewById(R.id.lsvAmazonList);
 
         mlsvAmazonList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -99,7 +100,7 @@ public class FragmentParent extends Fragment   {
 
         if (VenueList.getmVenues() == null || VenueList.getmVenues().isEmpty()) {
             showDialogProgress();
-            AppController.getInstance().addToRequestQueue(req, MTAG_JSON_ARRAY);
+            AplaudoApp.getInstance().addToRequestQueue(req, MTAG_JSON_ARRAY);
         }else{
             List<Venue> venues = VenueList.getmVenues();
             Adapter_amazon_list mAdaptador = new Adapter_amazon_list(getActivity(), venues);

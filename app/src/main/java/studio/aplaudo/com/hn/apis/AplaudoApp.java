@@ -12,14 +12,14 @@ import com.android.volley.toolbox.Volley;
  * Created by CortesMoncada on 17/03/2015.
  * Used to get request for Images.
  */
-public class AppController extends Application {
+public class AplaudoApp extends Application {
 
-    public static final String TAG = AppController.class.getSimpleName();
+    public static final String TAG = AplaudoApp.class.getSimpleName();
 
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
 
-    private static AppController mInstance;
+    private static AplaudoApp mInstance;
 
     @Override
     public void onCreate() {
@@ -27,7 +27,7 @@ public class AppController extends Application {
         mInstance = this;
     }
 
-    public static synchronized AppController getInstance() {
+    public static synchronized AplaudoApp getInstance() {
         return mInstance;
     }
 

@@ -1,9 +1,11 @@
-package studio.aplaudo.com.hn.applaudostudios;
+package studio.aplaudo.com.hn.activities;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
+import studio.aplaudo.com.hn.applaudostudios.R;
+import studio.aplaudo.com.hn.fragments.FragmentDetail;
 import studio.aplaudo.com.hn.models.Venue;
 
 /**

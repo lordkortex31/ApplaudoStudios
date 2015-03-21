@@ -17,7 +17,25 @@
         android:id="@+id/txvAmazonDetailDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/blue"
         android:layout_below="@+id/imgAmazonDetailView" />
 
+    <TextView
+        android:id="@+id/txvAmazonDetailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvAmazonDetailDescription" />
+
+    <TextView
+        android:id="@+id/txvAmazonDetailState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvAmazonDetailAddress" />
+
+    <TextView
+        android:id="@+id/txvAmazonDetailCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvAmazonDetailState" />
 
 </RelativeLayout>

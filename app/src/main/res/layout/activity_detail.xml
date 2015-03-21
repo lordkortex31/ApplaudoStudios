@@ -12,11 +12,11 @@
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:name="studio.aplaudo.com.hn.applaudostudios.FragmentDetail"
+        android:name="studio.aplaudo.com.hn.fragments.FragmentDetail"
         android:id="@+id/fragmentDetailNfl"
         android:layout_below="@+id/fragmentParentNfl"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="73dp" />
+         />
 
 </LinearLayout>
 </ScrollView>

@@ -1,4 +1,4 @@
-package studio.aplaudo.com.hn.applaudostudios;
+package studio.aplaudo.com.hn.activities;
 
 import android.app.FragmentManager;
 import android.content.Intent;
@@ -7,14 +7,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import studio.aplaudo.com.hn.interfaces.Communicator;
+import studio.aplaudo.com.hn.applaudostudios.R;
+import studio.aplaudo.com.hn.fragments.FragmentDetail;
+import studio.aplaudo.com.hn.interfaces.VenueListener;
 import studio.aplaudo.com.hn.models.Venue;
 
 /**
  * Created by CortesMoncada on 17/03/2015.
  * Main Activity is launcher Activity to show Nfl List.
  */
-public class MainActivity extends ActionBarActivity implements Communicator {
+public class MainActivity extends ActionBarActivity implements VenueListener {
 
     private Boolean twoPanel;
 
@@ -33,16 +35,11 @@ public class MainActivity extends ActionBarActivity implements Communicator {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return Boolean.TRUE;
-        }
         return super.onOptionsItemSelected(item);
     }
 

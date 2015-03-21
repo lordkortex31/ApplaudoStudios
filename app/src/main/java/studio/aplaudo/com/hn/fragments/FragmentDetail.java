@@ -1,4 +1,4 @@
-package studio.aplaudo.com.hn.applaudostudios;
+package studio.aplaudo.com.hn.fragments;
 
 import android.app.Fragment;
 import android.content.res.Resources;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import studio.aplaudo.com.hn.applaudostudios.R;
 import studio.aplaudo.com.hn.models.ScheduleItem;
 import studio.aplaudo.com.hn.models.Venue;
 
@@ -25,7 +26,7 @@ public class FragmentDetail extends Fragment {
     private static final String SEPARATOR = " , ";
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
     private ImageView mImgAmazonList;
-    private TextView mTxvAmazonList;
+    private TextView mTxvAmazonListDesciption,mTxvAmazonListAdrdress,mTxvAmazonListState,mTxvAmazonListCalendar;
 
 
     @Override
@@ -37,15 +38,16 @@ public class FragmentDetail extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mImgAmazonList = (ImageView) getActivity().findViewById(R.id.imgAmazonDetailView);
-        mTxvAmazonList = (TextView) getActivity().findViewById(R.id.txvAmazonDetailDescription);
-
     }
 
     public void changeData(Venue mVenue) {
 
         mImgAmazonList = (ImageView) getActivity().findViewById(R.id.imgAmazonDetailView);
-        mTxvAmazonList = (TextView) getActivity().findViewById(R.id.txvAmazonDetailDescription);
+        mTxvAmazonListDesciption = (TextView) getActivity().findViewById(R.id.txvAmazonDetailDescription);
+        mTxvAmazonListDesciption = (TextView) getActivity().findViewById(R.id.txvAmazonDetailDescription);
+        mTxvAmazonListAdrdress = (TextView) getActivity().findViewById(R.id.txvAmazonDetailAddress);
+        mTxvAmazonListState = (TextView) getActivity().findViewById(R.id.txvAmazonDetailState);
+        mTxvAmazonListCalendar = (TextView) getActivity().findViewById(R.id.txvAmazonDetailCalendar);
 
 
         if (mVenue != null) {
@@ -59,35 +61,13 @@ public class FragmentDetail extends Fragment {
                 mImgAmazonList.setImageDrawable(drawable);
             }
 
-            StringBuilder strBuilderDescription = buildDescription(mVenue);
             String strComplexDate = getComplexDate(mVenue);
-            strBuilderDescription.append(strComplexDate);
 
-            mTxvAmazonList.setText(strBuilderDescription.toString());
+            mTxvAmazonListDesciption.setText(mVenue.getName().concat(SEPARATOR).concat(mVenue.getDescription()));
+            mTxvAmazonListAdrdress.setText(mVenue.getAddress());
+            mTxvAmazonListState.setText(mVenue.getCity().concat(SEPARATOR).concat(mVenue.getState()).concat(SEPARATOR).concat(mVenue.getZip()));
+            mTxvAmazonListCalendar.setText(strComplexDate.toString());
         }
-    }
-
-
-    private StringBuilder buildDescription(Venue mVenue) {
-
-        StringBuilder strBuilderDescription = new StringBuilder();
-        strBuilderDescription.append(mVenue.getName());
-        strBuilderDescription.append(SEPARATOR);
-        strBuilderDescription.append(mVenue.getDescription());
-        strBuilderDescription.append(LINE_SEPARATOR);
-        strBuilderDescription.append(LINE_SEPARATOR);
-        strBuilderDescription.append(mVenue.getAddress());
-        strBuilderDescription.append(LINE_SEPARATOR);
-        strBuilderDescription.append(mVenue.getCity());
-        strBuilderDescription.append(SEPARATOR);
-        strBuilderDescription.append(mVenue.getState());
-        strBuilderDescription.append(SEPARATOR);
-        strBuilderDescription.append(mVenue.getZip());
-        strBuilderDescription.append(LINE_SEPARATOR);
-        strBuilderDescription.append(LINE_SEPARATOR);
-
-        return strBuilderDescription;
-
     }
 
 

@@ -7,7 +7,7 @@
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:name="studio.aplaudo.com.hn.applaudostudios.FragmentParent"
+        android:name="studio.aplaudo.com.hn.fragments.FragmentParent"
         android:id="@+id/fragmentParentNfl"
         android:layout_weight="1"
         android:layout_gravity="center_vertical" />
@@ -15,7 +15,7 @@
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:name="studio.aplaudo.com.hn.applaudostudios.FragmentDetail"
+        android:name="studio.aplaudo.com.hn.fragments.FragmentDetail"
         android:id="@+id/fragmentDetailNfl"
         android:layout_weight="1"
         android:layout_gravity="center_vertical" />
