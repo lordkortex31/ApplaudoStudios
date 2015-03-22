@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -25,9 +26,6 @@ public class FragmentDetail extends Fragment {
 
     private static final String SEPARATOR = " , ";
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
-    private ImageView mImgAmazonList;
-    private TextView mTxvAmazonListDesciption,mTxvAmazonListAdrdress,mTxvAmazonListState,mTxvAmazonListCalendar;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,31 +40,33 @@ public class FragmentDetail extends Fragment {
 
     public void changeData(Venue mVenue) {
 
-        mImgAmazonList = (ImageView) getActivity().findViewById(R.id.imgAmazonDetailView);
-        mTxvAmazonListDesciption = (TextView) getActivity().findViewById(R.id.txvAmazonDetailDescription);
-        mTxvAmazonListDesciption = (TextView) getActivity().findViewById(R.id.txvAmazonDetailDescription);
-        mTxvAmazonListAdrdress = (TextView) getActivity().findViewById(R.id.txvAmazonDetailAddress);
-        mTxvAmazonListState = (TextView) getActivity().findViewById(R.id.txvAmazonDetailState);
-        mTxvAmazonListCalendar = (TextView) getActivity().findViewById(R.id.txvAmazonDetailCalendar);
+        ImageView imgAmazonList;
+        TextView txvAmazonListDesciption,txvAmazonListAdrdress,txvAmazonListState,txvAmazonListCalendar;
+
+        imgAmazonList = (ImageView) getActivity().findViewById(R.id.imgAmazonDetailView);
+        txvAmazonListDesciption = (TextView) getActivity().findViewById(R.id.txvAmazonDetailDescription);
+        txvAmazonListAdrdress = (TextView) getActivity().findViewById(R.id.txvAmazonDetailAddress);
+        txvAmazonListState = (TextView) getActivity().findViewById(R.id.txvAmazonDetailState);
+        txvAmazonListCalendar = (TextView) getActivity().findViewById(R.id.txvAmazonDetailCalendar);
 
 
         if (mVenue != null) {
             String mUrlImage = mVenue.getImageUrl();
 
             if (!mUrlImage.equals("")) {
-                Picasso.with(getActivity()).load(mUrlImage).placeholder(R.mipmap.loadingimage).error(R.mipmap.noimage).into(mImgAmazonList);
+                Picasso.with(getActivity()).load(mUrlImage).placeholder(R.mipmap.loadingimage).error(R.mipmap.noimage).into(imgAmazonList);
             } else {
                 Resources res = getActivity().getResources();
                 Drawable drawable = res.getDrawable(R.mipmap.noimage);
-                mImgAmazonList.setImageDrawable(drawable);
+                imgAmazonList.setImageDrawable(drawable);
             }
 
             String strComplexDate = getComplexDate(mVenue);
 
-            mTxvAmazonListDesciption.setText(mVenue.getName().concat(SEPARATOR).concat(mVenue.getDescription()));
-            mTxvAmazonListAdrdress.setText(mVenue.getAddress());
-            mTxvAmazonListState.setText(mVenue.getCity().concat(SEPARATOR).concat(mVenue.getState()).concat(SEPARATOR).concat(mVenue.getZip()));
-            mTxvAmazonListCalendar.setText(strComplexDate.toString());
+            txvAmazonListDesciption.setText(mVenue.getName().concat(SEPARATOR).concat(mVenue.getDescription()));
+            txvAmazonListAdrdress.setText(mVenue.getAddress());
+            txvAmazonListState.setText(mVenue.getCity().concat(SEPARATOR).concat(mVenue.getState()).concat(SEPARATOR).concat(mVenue.getZip()));
+            txvAmazonListCalendar.setText(strComplexDate);
         }
     }
 
@@ -96,5 +96,18 @@ public class FragmentDetail extends Fragment {
         }
         return strComplexDate.toString();
 
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id== android.R.id.home){
+            getActivity().finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

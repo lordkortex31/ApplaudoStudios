@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="layoutMain" />
+    <item type="id" name="layoutParent" />
+    <item type="id" name="layoutDetail" />
+</resources>
