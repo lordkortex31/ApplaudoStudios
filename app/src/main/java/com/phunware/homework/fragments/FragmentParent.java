@@ -41,21 +41,38 @@ public class FragmentParent extends Fragment   {
     private ProgressDialog mAmazonProgressDialog;
     private VenueListener mVenueListener;
 
+    /**
+     *
+     */
     public FragmentParent(){
 
     }
 
-
+    /**
+     *
+     * @param inflater which is the inflater fragment.
+     * @param container which is the container.
+     * @param savedInstanceState which is the Bundle save instance.
+     * @return View object.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_parent, container, false);
     }
 
+    /**
+     *
+     * @param savedInstanceState which is the Bundle save instance.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     *
+     * @param savedInstanceState which is the Bundle save instance.
+     */
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -91,6 +108,9 @@ public class FragmentParent extends Fragment   {
 
     }
 
+    /**
+     * Method used to get Json Data by Http request REST service for Venue List information.
+     */
     private  void setDataList(){
 
         JsonArrayRequest req = new JsonArrayRequest(Const.URL_JSON_ARRAY_AMAZON,
@@ -123,6 +143,9 @@ public class FragmentParent extends Fragment   {
 
     }
 
+    /**
+     * Show Progress dialog.
+     */
     private void showDialogProgress(){
 
         mAmazonProgressDialog.setMessage(getResources().getString(R.string.message_loading_data));
@@ -132,6 +155,9 @@ public class FragmentParent extends Fragment   {
     }
 
 
+    /**
+     * Hide Progress dialog.
+     */
     private  void hideDialogProgress(){
 
         mAmazonProgressDialog.hide();
@@ -139,14 +165,15 @@ public class FragmentParent extends Fragment   {
 
     }
 
-
+    /**
+     * Hide Progress dialog on Pause.
+     */
     @Override
     public void onPause(){
 
         super.onPause();
         if(mAmazonProgressDialog != null){
-            mAmazonProgressDialog.hide();
-            mAmazonProgressDialog.dismiss();
+            hideDialogProgress();
 
         }
 

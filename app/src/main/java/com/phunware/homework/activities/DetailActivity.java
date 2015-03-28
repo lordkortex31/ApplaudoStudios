@@ -13,15 +13,22 @@ import com.phunware.homework.models.Venue;
 import studio.aplaudo.com.hn.applaudostudios.R;
 
 /**
- * Created by CortesMoncada on 17/03/2015.
- * Show detail information
+ * Created by mac on 17/03/2015.
+ * Class used to Show detail information
  */
 public class DetailActivity extends ActionBarActivity {
 
+    /**
+     * Activity used to show detail information about venues with an image Header.
+     */
     public DetailActivity(){
 
     }
 
+    /**
+     *
+     * @param savedInstanceState which is used to save state information.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +40,18 @@ public class DetailActivity extends ActionBarActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    /**
+     *
+     * @param menu which represents a resource menu option.
+     * @return boolean value.
+     */
+ @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         int id = item.getItemId();
 
         if (id== android.R.id.home){

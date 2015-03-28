@@ -8,7 +8,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
 /**
- * Created by CortesMoncada on 17/03/2015.
+ * Created by mac on 17/03/2015.
  * Used to get request for Images.
  */
 public class AplaudoApp extends Application {
@@ -17,17 +17,28 @@ public class AplaudoApp extends Application {
     private static AplaudoApp sInstance;
     private RequestQueue mRequestQueue;
 
-
+    /**
+     *
+     */
     @Override
     public void onCreate() {
         super.onCreate();
         sInstance = this;
     }
 
+    /**
+     *
+     * @return AplaudoApp instance.
+     */
     public static synchronized AplaudoApp getInstance() {
         return sInstance;
     }
 
+
+    /**
+     *
+     * @return RequestQueue.
+     */
     public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
             mRequestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -37,7 +48,12 @@ public class AplaudoApp extends Application {
     }
 
 
-
+    /**
+     *
+     * @param req which is request.
+     * @param tag which is tag.
+     * @param <T> which is generic type.
+     */
     public <T> void addToRequestQueue(Request<T> req, String tag) {
         req.setTag(TextUtils.isEmpty(tag) ? TAG : tag);
         getRequestQueue().add(req);

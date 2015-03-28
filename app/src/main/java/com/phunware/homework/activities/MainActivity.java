@@ -24,10 +24,17 @@ public class MainActivity extends ActionBarActivity implements VenueListener {
     private static final String FRAGMENT_DETAIL ="fragmentDetail";
     private Boolean mTwoPanel;
 
+    /**
+     * Activity used to control the UI presentation for tablets or small devices.
+     */
     public MainActivity(){
 
     }
 
+    /**
+     *
+     * @param savedInstanceState which is used to save state information.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,8 +76,12 @@ public class MainActivity extends ActionBarActivity implements VenueListener {
     }
 
 
+    /**
+     *
+     * @param venue which is used to send venue object between fragments on Activities.
+     */
     @Override
-    public void sendVenue(Venue venue) {
+    public void sendVenue(final Venue venue) {
         if (mTwoPanel) {
             android.app.FragmentManager fragmentManager = getFragmentManager();
             FragmentDetail fragmentDetail = (FragmentDetail) fragmentManager.findFragmentByTag(FRAGMENT_DETAIL);

@@ -23,26 +23,50 @@ import studio.aplaudo.com.hn.applaudostudios.R;
  */
 public class FragmentDetail extends Fragment {
 
-
+    /**
+     *
+     */
     private static final String SEPARATOR = " , ";
+
+    /**
+     *
+     */
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
+
+    /**
+     * Fragment used to show detail venue information  on FragmentDetail layout.
+     */
     public  FragmentDetail(){
 
     }
 
+    /**
+     *
+     * @param inflater which is the inflater fragment.
+     * @param container which is the container.
+     * @param savedInstanceState which is the Bundle save instance.
+     * @return View object.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_detail, container, false);
     }
 
-
+    /**
+     *
+     * @param savedInstanceState which is the Bundle save instance.
+     */
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
     }
 
-    public void changeData(Venue venue) {
+    /**
+     *
+     * @param venue which is used to send venue object between fragments on Activities.
+     */
+    public void changeData(final Venue venue) {
 
         ImageView imgAmazonList;
         TextView txvAmazonListDescription,txvAmazonListAddress,txvAmazonListState,txvAmazonListCalendar;
@@ -57,7 +81,7 @@ public class FragmentDetail extends Fragment {
         if (venue != null) {
             String mUrlImage = venue.getImageUrl();
 
-            if (!mUrlImage.equals("")) {
+            if (!"".equals(mUrlImage)) {
                 Picasso.with(getActivity()).load(mUrlImage).placeholder(R.mipmap.loadingimage).error(R.mipmap.noimage).into(imgAmazonList);
             } else {
                 Resources res = getActivity().getResources();
@@ -74,23 +98,26 @@ public class FragmentDetail extends Fragment {
         }
     }
 
-
+    /**
+     *
+     * @param sStartDate which is the start date on detail information.
+     * @param sEndDate which is the end date on detail information.
+     * @return string .
+     */
     private String buildDate(final String sStartDate, final String sEndDate) {
 
-        StringBuilder strBuilderDate = new StringBuilder();
-        strBuilderDate.append(sStartDate);
-        strBuilderDate.append(LINE_SEPARATOR);
-        strBuilderDate.append(sEndDate);
-        strBuilderDate.append(LINE_SEPARATOR);
-
-        return strBuilderDate.toString();
+        return sStartDate + LINE_SEPARATOR + sEndDate + LINE_SEPARATOR;
 
     }
 
-
-    private String getComplexDate(Venue mVenue) {
+    /**
+     *
+     * @param venue which is used to send venue object between fragments on Activities.
+     * @return string.
+     */
+    private String getComplexDate(final Venue venue) {
         StringBuilder strComplexDate = new StringBuilder();
-        for (ScheduleItemParceable mSchedule : mVenue.getSchedule()) {
+        for (ScheduleItemParceable mSchedule : venue.getSchedule()) {
             if (mSchedule != null) {
                 String sStartDate = mSchedule.getStartDate();
                 String sEndDate = mSchedule.getEndDate();
@@ -102,9 +129,13 @@ public class FragmentDetail extends Fragment {
 
     }
 
-
+    /**
+     *
+     * @param item on menu option.
+     * @return boolean value.
+     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         int id = item.getItemId();
 
         if (id== android.R.id.home){

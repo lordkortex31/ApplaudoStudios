@@ -23,25 +23,49 @@ public class AdapterAmazonList extends BaseAdapter {
     private List<Venue> mData;
     private static LayoutInflater mInflater = null;
 
-
-    public AdapterAmazonList(Activity activity, List<Venue> venueList) {
+    /**
+     *
+     * @param activity which represents context activity parent.
+     * @param venueList is a {@link com.phunware.homework.models.Venue} object.
+     */
+    public AdapterAmazonList(final Activity activity, final List<Venue> venueList) {
         mData = venueList;
         mInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-
+    /**
+     *
+     * @return the {@link com.phunware.homework.models.Venue} object size.
+     */
     public int getCount() {
         return mData.size();
     }
 
-    public Object getItem(int position) {
+    /**
+     *
+     * @param position which is the current position on element list.
+     * @return object.
+     */
+    public Object getItem(final int position) {
         return position;
     }
 
-    public long getItemId(int position) {
+    /**
+     *
+     * @param position which is the current position on element list.
+     * @return long value.
+     */
+    public long getItemId(final int position) {
         return position;
     }
 
+    /**
+     *
+     * @param position which is the current position on element list.
+     * @param convertView which is the view.
+     * @param parent which is the view parent.
+     * @return view object.
+     */
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
         if (convertView == null) {
@@ -58,6 +82,5 @@ public class AdapterAmazonList extends BaseAdapter {
 
         return vi;
     }
-
 
 }
