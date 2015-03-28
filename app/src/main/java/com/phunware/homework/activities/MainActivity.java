@@ -1,4 +1,4 @@
-package studio.aplaudo.com.hn.activities;
+package com.phunware.homework.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,11 +6,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.LinearLayout;
 
+import com.phunware.homework.constants.Const;
+import com.phunware.homework.fragments.FragmentDetail;
+import com.phunware.homework.fragments.FragmentParent;
+import com.phunware.homework.interfaces.VenueListener;
+import com.phunware.homework.models.Venue;
+
 import studio.aplaudo.com.hn.applaudostudios.R;
-import studio.aplaudo.com.hn.fragments.FragmentDetail;
-import studio.aplaudo.com.hn.fragments.FragmentParent;
-import studio.aplaudo.com.hn.interfaces.VenueListener;
-import studio.aplaudo.com.hn.models.Venue;
 
 /**
  * Created by mac on 22/03/15.
@@ -20,15 +22,18 @@ public class MainActivity extends ActionBarActivity implements VenueListener {
 
     private static final String FRAGMENT_PARENT ="fragmentParent";
     private static final String FRAGMENT_DETAIL ="fragmentDetail";
+    private Boolean mTwoPanel;
 
-    private Boolean twoPanel;
+    public MainActivity(){
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_dynamic);
 
-        twoPanel = getResources().getBoolean(R.bool.isTablet);
+        mTwoPanel = getResources().getBoolean(R.bool.isTablet);
 
         LinearLayout.LayoutParams layoutParamsPartial = new LinearLayout.LayoutParams(
                 400, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -42,7 +47,7 @@ public class MainActivity extends ActionBarActivity implements VenueListener {
         linearLayoutParent.setOrientation(LinearLayout.VERTICAL);
         linearLayoutParent.setId(R.id.layoutParent);
 
-        if (twoPanel){
+        if (mTwoPanel){
             linearLayoutParent.setLayoutParams(layoutParamsPartial);
         }else{
             linearLayoutParent.setLayoutParams(layoutParamsComplete);
@@ -51,7 +56,7 @@ public class MainActivity extends ActionBarActivity implements VenueListener {
         getFragmentManager().beginTransaction().add(linearLayoutParent.getId(), new FragmentParent(), FRAGMENT_PARENT).commit();
         fragContainer.addView(linearLayoutParent);
 
-        if (twoPanel){
+        if (mTwoPanel){
             LinearLayout linearLayoutDetail = new LinearLayout(this);
             linearLayoutDetail.setOrientation(LinearLayout.VERTICAL);
             linearLayoutDetail.setId(R.id.layoutDetail);
@@ -66,23 +71,17 @@ public class MainActivity extends ActionBarActivity implements VenueListener {
 
     @Override
     public void sendVenue(Venue venue) {
-        if (twoPanel) {
+        if (mTwoPanel) {
             android.app.FragmentManager fragmentManager = getFragmentManager();
             FragmentDetail fragmentDetail = (FragmentDetail) fragmentManager.findFragmentByTag(FRAGMENT_DETAIL);
             fragmentDetail.changeData(venue);
         } else {
-
-            Bundle bundleVenue = new Bundle();
-            Intent intent = new Intent();
-            intent.setClass(this, DetailActivity.class);
-            intent.putExtras(bundleVenue);
-            startActivity(intent);
-            try {
-                Intent ourintent = new Intent(MainActivity.this, DetailActivity.class);
-                ourintent.putExtra("MyClassVenue", venue);
-                startActivity(ourintent);
+           try {
+                Intent intentCaller = new Intent(MainActivity.this, DetailActivity.class);
+                intentCaller.putExtra(Const.VENUE_TRANSFER_DTO, venue);
+                startActivity(intentCaller);
             } catch (Exception e) {
-                Log.i("Error On Start Activity","");
+                Log.i(Const.ACTIVITY_ERROR_START,"");
             }
 
         }

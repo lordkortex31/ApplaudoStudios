@@ -6,13 +6,13 @@
 
 
     <application
-        android:name="studio.aplaudo.com.hn.apis.AplaudoApp"
+        android:name="com.phunware.homework.AplaudoApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name="studio.aplaudo.com.hn.activities.MainActivity"
+            android:name="com.phunware.homework.activities.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +20,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="studio.aplaudo.com.hn.activities.DetailActivity"
-            android:parentActivityName="studio.aplaudo.com.hn.activities.MainActivity"
+            android:name="com.phunware.homework.activities.DetailActivity"
+            android:parentActivityName="com.phunware.homework.activities.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />

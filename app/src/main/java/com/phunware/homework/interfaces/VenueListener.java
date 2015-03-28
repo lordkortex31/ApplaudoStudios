@@ -1,6 +1,6 @@
-package studio.aplaudo.com.hn.interfaces;
+package com.phunware.homework.interfaces;
 
-import studio.aplaudo.com.hn.models.Venue;
+import com.phunware.homework.models.Venue;
 
 /**
  * Created by CortesMoncada on 17/03/2015.
@@ -8,6 +8,6 @@ import studio.aplaudo.com.hn.models.Venue;
  */
 public interface VenueListener {
 
-    public void sendVenue(Venue venue);
+    public void sendVenue(final Venue venue);
 
 }

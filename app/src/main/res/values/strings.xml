@@ -2,16 +2,17 @@
     <string name="app_name">Applaudostudio</string>
     <string name="title_amazonitem_detail">AmazonItem Detail</string>
 
-    <string name="action_settings">Share</string>
-
-
     <string name="share">Share</string>
+
     <string name="btn_json">Json Request</string>
     <string name="btn_string">String Request</string>
     <string name="btn_image">Image Request</string>
-
     <string name="btn_json_obj_request">Json Object Request</string>
     <string name="btn_json_array_request">Json Array Request</string>
 
-    <string name="img_main_description">Imagen Descriptiva del Ciudad</string>
+    <string name="img_main_description">City image</string>
+
+    <string name="message_loading_data">Loading Data Venues ...</string>
+
+
 </resources>

@@ -1,4 +1,4 @@
-package studio.aplaudo.com.hn.adapters;
+package com.phunware.homework.adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,24 +8,25 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.phunware.homework.models.Venue;
+
 import java.util.List;
 
 import studio.aplaudo.com.hn.applaudostudios.R;
-import studio.aplaudo.com.hn.models.Venue;
 
 /**
  * Created by CortesMoncada on 17/03/2015.
  * Adapter to fill amazon List on ListFragment.
  */
-public class Adapter_amazon_list extends BaseAdapter {
+public class AdapterAmazonList extends BaseAdapter {
 
     private List<Venue> mData;
     private static LayoutInflater mInflater = null;
 
 
-    public Adapter_amazon_list(Activity a, List<Venue> d) {
-        mData = d;
-        mInflater = (LayoutInflater) a.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public AdapterAmazonList(Activity activity, List<Venue> venueList) {
+        mData = venueList;
+        mInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
 
@@ -49,11 +50,11 @@ public class Adapter_amazon_list extends BaseAdapter {
 
         Venue venue = mData.get(position);
 
-        TextView mTxvAddress = (TextView) vi.findViewById(R.id.txvAddress);
-        TextView mTxvCityDescription = (TextView) vi.findViewById(R.id.txvCityDescription);
+        TextView txvAddress = (TextView) vi.findViewById(R.id.txvAddress);
+        TextView txvCityDescription = (TextView) vi.findViewById(R.id.txvCityDescription);
 
-        mTxvAddress.setText(venue.getAddress());
-        mTxvCityDescription.setText(venue.getName() + ',' + venue.getCity() + ',' + venue.getState());
+        txvAddress.setText(venue.getAddress());
+        txvCityDescription.setText(venue.getName() + ',' + venue.getCity() + ',' + venue.getState());
 
         return vi;
     }

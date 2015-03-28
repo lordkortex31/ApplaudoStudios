@@ -1,4 +1,4 @@
-package studio.aplaudo.com.hn.fragments;
+package com.phunware.homework.fragments;
 
 import android.app.Fragment;
 import android.content.res.Resources;
@@ -11,11 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.phunware.homework.models.ScheduleItemParceable;
+import com.phunware.homework.models.Venue;
 import com.squareup.picasso.Picasso;
 
 import studio.aplaudo.com.hn.applaudostudios.R;
-import studio.aplaudo.com.hn.models.ScheduleItem;
-import studio.aplaudo.com.hn.models.Venue;
 
 /**
  * Created by CortesMoncada on 17/03/2015.
@@ -26,6 +26,10 @@ public class FragmentDetail extends Fragment {
 
     private static final String SEPARATOR = " , ";
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+
+    public  FragmentDetail(){
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,20 +42,20 @@ public class FragmentDetail extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    public void changeData(Venue mVenue) {
+    public void changeData(Venue venue) {
 
         ImageView imgAmazonList;
-        TextView txvAmazonListDesciption,txvAmazonListAdrdress,txvAmazonListState,txvAmazonListCalendar;
+        TextView txvAmazonListDescription,txvAmazonListAddress,txvAmazonListState,txvAmazonListCalendar;
 
         imgAmazonList = (ImageView) getActivity().findViewById(R.id.imgAmazonDetailView);
-        txvAmazonListDesciption = (TextView) getActivity().findViewById(R.id.txvAmazonDetailDescription);
-        txvAmazonListAdrdress = (TextView) getActivity().findViewById(R.id.txvAmazonDetailAddress);
+        txvAmazonListDescription = (TextView) getActivity().findViewById(R.id.txvAmazonDetailDescription);
+        txvAmazonListAddress = (TextView) getActivity().findViewById(R.id.txvAmazonDetailAddress);
         txvAmazonListState = (TextView) getActivity().findViewById(R.id.txvAmazonDetailState);
         txvAmazonListCalendar = (TextView) getActivity().findViewById(R.id.txvAmazonDetailCalendar);
 
 
-        if (mVenue != null) {
-            String mUrlImage = mVenue.getImageUrl();
+        if (venue != null) {
+            String mUrlImage = venue.getImageUrl();
 
             if (!mUrlImage.equals("")) {
                 Picasso.with(getActivity()).load(mUrlImage).placeholder(R.mipmap.loadingimage).error(R.mipmap.noimage).into(imgAmazonList);
@@ -61,11 +65,11 @@ public class FragmentDetail extends Fragment {
                 imgAmazonList.setImageDrawable(drawable);
             }
 
-            String strComplexDate = getComplexDate(mVenue);
+            String strComplexDate = getComplexDate(venue);
 
-            txvAmazonListDesciption.setText(mVenue.getName().concat(SEPARATOR).concat(mVenue.getDescription()));
-            txvAmazonListAdrdress.setText(mVenue.getAddress());
-            txvAmazonListState.setText(mVenue.getCity().concat(SEPARATOR).concat(mVenue.getState()).concat(SEPARATOR).concat(mVenue.getZip()));
+            txvAmazonListDescription.setText(venue.getName().concat(SEPARATOR).concat(venue.getDescription()));
+            txvAmazonListAddress.setText(venue.getAddress());
+            txvAmazonListState.setText(venue.getCity().concat(SEPARATOR).concat(venue.getState()).concat(SEPARATOR).concat(venue.getZip()));
             txvAmazonListCalendar.setText(strComplexDate);
         }
     }
@@ -86,7 +90,7 @@ public class FragmentDetail extends Fragment {
 
     private String getComplexDate(Venue mVenue) {
         StringBuilder strComplexDate = new StringBuilder();
-        for (ScheduleItem mSchedule : mVenue.getSchedule()) {
+        for (ScheduleItemParceable mSchedule : mVenue.getSchedule()) {
             if (mSchedule != null) {
                 String sStartDate = mSchedule.getStartDate();
                 String sEndDate = mSchedule.getEndDate();
