@@ -10,10 +10,9 @@ import java.util.List;
 public final class VenueList {
 
 
-
     private static List<Venue> sVenues = new ArrayList<>();
 
-    private VenueList(){
+    private VenueList() {
 
 
     }

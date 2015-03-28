@@ -33,7 +33,7 @@ import studio.aplaudo.com.hn.applaudostudios.R;
  * Created by CortesMoncada on 17/03/2015.
  * Fragment used to show Main Parent Information.
  */
-public class FragmentParent extends Fragment   {
+public class FragmentParent extends Fragment {
 
     private static final String TAG_JSON_ARRAY = "jarray_req";
     private String mJsonResponse = "";
@@ -44,14 +44,13 @@ public class FragmentParent extends Fragment   {
     /**
      *
      */
-    public FragmentParent(){
+    public FragmentParent() {
 
     }
 
     /**
-     *
-     * @param inflater which is the inflater fragment.
-     * @param container which is the container.
+     * @param inflater           which is the inflater fragment.
+     * @param container          which is the container.
      * @param savedInstanceState which is the Bundle save instance.
      * @return View object.
      */
@@ -61,7 +60,6 @@ public class FragmentParent extends Fragment   {
     }
 
     /**
-     *
      * @param savedInstanceState which is the Bundle save instance.
      */
     @Override
@@ -70,7 +68,6 @@ public class FragmentParent extends Fragment   {
     }
 
     /**
-     *
      * @param savedInstanceState which is the Bundle save instance.
      */
     @Override
@@ -94,12 +91,12 @@ public class FragmentParent extends Fragment   {
 
 
         if (VenueList.getsVenues() == null || VenueList.getsVenues().isEmpty()) {
-            if(mAmazonProgressDialog != null){
+            if (mAmazonProgressDialog != null) {
                 hideDialogProgress();
                 showDialogProgress();
             }
             setDataList();
-        }else{
+        } else {
             List<Venue> venues = VenueList.getsVenues();
             AdapterAmazonList amazonAdaptador = new AdapterAmazonList(getActivity(), venues);
             mLsvAmazonList.setAdapter(amazonAdaptador);
@@ -111,7 +108,7 @@ public class FragmentParent extends Fragment   {
     /**
      * Method used to get Json Data by Http request REST service for Venue List information.
      */
-    private  void setDataList(){
+    private void setDataList() {
 
         JsonArrayRequest req = new JsonArrayRequest(Const.URL_JSON_ARRAY_AMAZON,
                 new Response.Listener<JSONArray>() {
@@ -146,7 +143,7 @@ public class FragmentParent extends Fragment   {
     /**
      * Show Progress dialog.
      */
-    private void showDialogProgress(){
+    private void showDialogProgress() {
 
         mAmazonProgressDialog.setMessage(getResources().getString(R.string.message_loading_data));
         mAmazonProgressDialog.setCancelable(false);
@@ -158,7 +155,7 @@ public class FragmentParent extends Fragment   {
     /**
      * Hide Progress dialog.
      */
-    private  void hideDialogProgress(){
+    private void hideDialogProgress() {
 
         mAmazonProgressDialog.hide();
         mAmazonProgressDialog.dismiss();
@@ -169,16 +166,15 @@ public class FragmentParent extends Fragment   {
      * Hide Progress dialog on Pause.
      */
     @Override
-    public void onPause(){
+    public void onPause() {
 
         super.onPause();
-        if(mAmazonProgressDialog != null){
+        if (mAmazonProgressDialog != null) {
             hideDialogProgress();
 
         }
 
-   }
-
+    }
 
 
 }

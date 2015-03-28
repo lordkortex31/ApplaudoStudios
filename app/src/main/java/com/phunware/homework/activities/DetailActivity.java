@@ -21,19 +21,18 @@ public class DetailActivity extends ActionBarActivity {
     /**
      * Activity used to show detail information about venues with an image Header.
      */
-    public DetailActivity(){
+    public DetailActivity() {
 
     }
 
     /**
-     *
      * @param savedInstanceState which is used to save state information.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        Venue venue =  getIntent().getParcelableExtra(Const.VENUE_TRANSFER_DTO);
+        Venue venue = getIntent().getParcelableExtra(Const.VENUE_TRANSFER_DTO);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentDetail fragmentDetail = (FragmentDetail) fragmentManager.findFragmentById(R.id.fragmentDetailNfl);
         fragmentDetail.changeData(venue);
@@ -41,11 +40,10 @@ public class DetailActivity extends ActionBarActivity {
     }
 
     /**
-     *
      * @param menu which represents a resource menu option.
      * @return boolean value.
      */
- @Override
+    @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         return true;
     }
@@ -54,7 +52,7 @@ public class DetailActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(final MenuItem item) {
         int id = item.getItemId();
 
-        if (id== android.R.id.home){
+        if (id == android.R.id.home) {
             finish();
         }
 

@@ -27,7 +27,6 @@ public class AplaudoApp extends Application {
     }
 
     /**
-     *
      * @return AplaudoApp instance.
      */
     public static synchronized AplaudoApp getInstance() {
@@ -36,7 +35,6 @@ public class AplaudoApp extends Application {
 
 
     /**
-     *
      * @return RequestQueue.
      */
     public RequestQueue getRequestQueue() {
@@ -49,7 +47,6 @@ public class AplaudoApp extends Application {
 
 
     /**
-     *
      * @param req which is request.
      * @param tag which is tag.
      * @param <T> which is generic type.

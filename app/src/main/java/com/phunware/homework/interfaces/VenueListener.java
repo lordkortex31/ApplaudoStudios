@@ -9,7 +9,6 @@ import com.phunware.homework.models.Venue;
 public interface VenueListener {
 
     /**
-     *
      * @param venue which is used to send venue object between fragments on Activities.
      */
     public void sendVenue(final Venue venue);

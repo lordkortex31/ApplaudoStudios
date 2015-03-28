@@ -46,27 +46,27 @@ public class Venue implements Parcelable {
     private List<ScheduleItemParceable> mSchedule;
 
 
-    public Venue(Parcel in){
+    public Venue(Parcel in) {
         this.mId = in.readLong();
         this.mPcode = in.readInt();
-        this.mLatitude= in.readString();
-        this.mLongitude= in.readString();
-        this.mName= in.readString();
-        this.mAddress= in.readString();
-        this.mCity= in.readString();
-        this.mState= in.readString();
-        this.mZip= in.readString();
-        this.mPhone= in.readString();
-        this.mTollFreePhone= in.readString();
-        this.mUrl= in.readString();
-        this.mDescription= in.readString();
-        this.mTicketLink= in.readString();
-        this.mImageUrl= in.readString();
-        this.mSchedule= new ArrayList<>();
-        in.readTypedList(mSchedule,ScheduleItemParceable.CREATOR);
+        this.mLatitude = in.readString();
+        this.mLongitude = in.readString();
+        this.mName = in.readString();
+        this.mAddress = in.readString();
+        this.mCity = in.readString();
+        this.mState = in.readString();
+        this.mZip = in.readString();
+        this.mPhone = in.readString();
+        this.mTollFreePhone = in.readString();
+        this.mUrl = in.readString();
+        this.mDescription = in.readString();
+        this.mTicketLink = in.readString();
+        this.mImageUrl = in.readString();
+        this.mSchedule = new ArrayList<>();
+        in.readTypedList(mSchedule, ScheduleItemParceable.CREATOR);
     }
 
-    public static final  Creator<Venue> CREATOR = new Creator<Venue>() {
+    public static final Creator<Venue> CREATOR = new Creator<Venue>() {
         @Override
         public Venue createFromParcel(Parcel source) {
             return new Venue(source);

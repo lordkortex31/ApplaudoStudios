@@ -17,11 +17,10 @@ public class ScheduleItemParceable implements Parcelable {
     @SerializedName("end_date")
     private String mEndDate;
 
-    public ScheduleItemParceable(Parcel in){
+    public ScheduleItemParceable(Parcel in) {
         this.mStartDate = in.readString();
         this.mEndDate = in.readString();
     }
-
 
 
     @Override

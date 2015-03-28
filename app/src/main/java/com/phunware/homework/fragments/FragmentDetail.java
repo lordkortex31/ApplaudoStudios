@@ -37,14 +37,13 @@ public class FragmentDetail extends Fragment {
     /**
      * Fragment used to show detail venue information  on FragmentDetail layout.
      */
-    public  FragmentDetail(){
+    public FragmentDetail() {
 
     }
 
     /**
-     *
-     * @param inflater which is the inflater fragment.
-     * @param container which is the container.
+     * @param inflater           which is the inflater fragment.
+     * @param container          which is the container.
      * @param savedInstanceState which is the Bundle save instance.
      * @return View object.
      */
@@ -54,7 +53,6 @@ public class FragmentDetail extends Fragment {
     }
 
     /**
-     *
      * @param savedInstanceState which is the Bundle save instance.
      */
     @Override
@@ -63,13 +61,12 @@ public class FragmentDetail extends Fragment {
     }
 
     /**
-     *
      * @param venue which is used to send venue object between fragments on Activities.
      */
     public void changeData(final Venue venue) {
 
         ImageView imgAmazonList;
-        TextView txvAmazonListDescription,txvAmazonListAddress,txvAmazonListState,txvAmazonListCalendar;
+        TextView txvAmazonListDescription, txvAmazonListAddress, txvAmazonListState, txvAmazonListCalendar;
 
         imgAmazonList = (ImageView) getActivity().findViewById(R.id.imgAmazonDetailView);
         txvAmazonListDescription = (TextView) getActivity().findViewById(R.id.txvAmazonDetailDescription);
@@ -99,9 +96,8 @@ public class FragmentDetail extends Fragment {
     }
 
     /**
-     *
      * @param sStartDate which is the start date on detail information.
-     * @param sEndDate which is the end date on detail information.
+     * @param sEndDate   which is the end date on detail information.
      * @return string .
      */
     private String buildDate(final String sStartDate, final String sEndDate) {
@@ -111,7 +107,6 @@ public class FragmentDetail extends Fragment {
     }
 
     /**
-     *
      * @param venue which is used to send venue object between fragments on Activities.
      * @return string.
      */
@@ -130,7 +125,6 @@ public class FragmentDetail extends Fragment {
     }
 
     /**
-     *
      * @param item on menu option.
      * @return boolean value.
      */
@@ -138,7 +132,7 @@ public class FragmentDetail extends Fragment {
     public boolean onOptionsItemSelected(final MenuItem item) {
         int id = item.getItemId();
 
-        if (id== android.R.id.home){
+        if (id == android.R.id.home) {
             getActivity().finish();
             return true;
         }

@@ -20,19 +20,18 @@ import studio.aplaudo.com.hn.applaudostudios.R;
  */
 public class MainActivity extends ActionBarActivity implements VenueListener {
 
-    private static final String FRAGMENT_PARENT ="fragmentParent";
-    private static final String FRAGMENT_DETAIL ="fragmentDetail";
+    private static final String FRAGMENT_PARENT = "fragmentParent";
+    private static final String FRAGMENT_DETAIL = "fragmentDetail";
     private Boolean mTwoPanel;
 
     /**
      * Activity used to control the UI presentation for tablets or small devices.
      */
-    public MainActivity(){
+    public MainActivity() {
 
     }
 
     /**
-     *
      * @param savedInstanceState which is used to save state information.
      */
     @Override
@@ -54,16 +53,16 @@ public class MainActivity extends ActionBarActivity implements VenueListener {
         linearLayoutParent.setOrientation(LinearLayout.VERTICAL);
         linearLayoutParent.setId(R.id.layoutParent);
 
-        if (mTwoPanel){
+        if (mTwoPanel) {
             linearLayoutParent.setLayoutParams(layoutParamsPartial);
-        }else{
+        } else {
             linearLayoutParent.setLayoutParams(layoutParamsComplete);
         }
 
         getFragmentManager().beginTransaction().add(linearLayoutParent.getId(), new FragmentParent(), FRAGMENT_PARENT).commit();
         fragContainer.addView(linearLayoutParent);
 
-        if (mTwoPanel){
+        if (mTwoPanel) {
             LinearLayout linearLayoutDetail = new LinearLayout(this);
             linearLayoutDetail.setOrientation(LinearLayout.VERTICAL);
             linearLayoutDetail.setId(R.id.layoutDetail);
@@ -77,7 +76,6 @@ public class MainActivity extends ActionBarActivity implements VenueListener {
 
 
     /**
-     *
      * @param venue which is used to send venue object between fragments on Activities.
      */
     @Override
@@ -87,12 +85,12 @@ public class MainActivity extends ActionBarActivity implements VenueListener {
             FragmentDetail fragmentDetail = (FragmentDetail) fragmentManager.findFragmentByTag(FRAGMENT_DETAIL);
             fragmentDetail.changeData(venue);
         } else {
-           try {
+            try {
                 Intent intentCaller = new Intent(MainActivity.this, DetailActivity.class);
                 intentCaller.putExtra(Const.VENUE_TRANSFER_DTO, venue);
                 startActivity(intentCaller);
             } catch (Exception e) {
-                Log.i(Const.ACTIVITY_ERROR_START,"");
+                Log.i(Const.ACTIVITY_ERROR_START, "");
             }
 
         }
